@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="71.529411"
+   inkscape:export-xdpi="71.529411"
+   inkscape:export-filename="/Users/ali/Desktop/virgooldoon-logo.png"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="virgooldoon-logo.svg"
+   xml:space="preserve"
+   style="enable-background:new 0 0 60 60;"
+   viewBox="0 0 60 60"
+   y="0px"
+   x="0px"
+   id="Capa_1"
+   version="1.1"><metadata
+   id="metadata975"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs973"><linearGradient
+     id="linearGradient1595"
+     inkscape:collect="always"><stop
+       id="stop1591"
+       offset="0"
+       style="stop-color:#e6e6e6;stop-opacity:1;" /><stop
+       id="stop1593"
+       offset="1"
+       style="stop-color:#cccccc;stop-opacity:1" /></linearGradient><filter
+     filterUnits="objectBoundingBox"
+     height="2"
+     id="filter-3"
+     width="2"
+     x="-0.5"
+     y="-0.5"><feOffset
+       dx="0"
+       dy="1"
+       in="SourceAlpha"
+       result="shadowOffsetOuter1"
+       id="feOffset12" /><feGaussianBlur
+       in="shadowOffsetOuter1"
+       result="shadowBlurOuter1"
+       stdDeviation="1.5"
+       id="feGaussianBlur14" /><feColorMatrix
+       in="shadowBlurOuter1"
+       type="matrix"
+       values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"
+       id="feColorMatrix16" /></filter><linearGradient
+     id="Shape_1_"
+     gradientUnits="userSpaceOnUse"
+     x1="-892.57239"
+     y1="1149.3007"
+     x2="-891.61719"
+     y2="1149.8015"
+     gradientTransform="matrix(17.690104,4.7400492,6.4341612,-24.012617,8415.1928,31865.547)"><stop
+       offset="0"
+       class="page_speed_977234731"
+       id="stop19"
+       style="stop-color:#0173bc;stop-opacity:1" /><stop
+       offset="1"
+       class="page_speed_833252388"
+       id="stop21"
+       style="stop-color:#0159aa;stop-opacity:1" /></linearGradient><linearGradient
+     gradientUnits="userSpaceOnUse"
+     y2="37.331429"
+     x2="36.950497"
+     y1="28.569969"
+     x1="40.569359"
+     id="linearGradient1597"
+     xlink:href="#linearGradient1595"
+     inkscape:collect="always" /></defs><sodipodi:namedview
+   inkscape:current-layer="Capa_1"
+   inkscape:window-maximized="0"
+   inkscape:window-y="157"
+   inkscape:window-x="787"
+   inkscape:cy="34.300655"
+   inkscape:cx="23.900969"
+   inkscape:zoom="5.2502679"
+   showgrid="false"
+   id="namedview971"
+   inkscape:window-height="852"
+   inkscape:window-width="1115"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+<rect
+   y="14.284986"
+   x="0.95233202"
+   height="40.378891"
+   width="57.711342"
+   id="rect1028"
+   style="fill:url(#linearGradient1597);fill-opacity:1" /><path
+   style="fill:#1a1a1a"
+   id="path938"
+   d="M56.99,13.5H55v-3H45v3h-4V7.706C41,5.938,39.562,4.5,37.794,4.5H22.206C20.438,4.5,19,5.938,19,7.706V13.5h-4v-3H5v3H3.01  C1.351,13.5,0,14.851,0,16.51v35.98c0,1.659,1.351,3.01,3.01,3.01h53.98c1.659,0,3.01-1.351,3.01-3.01V16.51  C60,14.851,58.649,13.5,56.99,13.5z M47,12.5h6v1h-6V12.5z M21,7.706C21,7.041,21.541,6.5,22.206,6.5h15.588  C38.459,6.5,39,7.041,39,7.706V13.5H21V7.706z M19,15.5h22h4h5v38H10v-38h5H19z M7,12.5h6v1H7V12.5z M2,52.49V16.51  c0-0.557,0.453-1.01,1.01-1.01H5h3v38H3.01C2.453,53.5,2,53.047,2,52.49z M58,52.49c0,0.557-0.453,1.01-1.01,1.01H52v-38h3h1.99  c0.557,0,1.01,0.453,1.01,1.01V52.49z" />
+<g
+   id="g940">
+</g>
+<g
+   id="g942">
+</g>
+<g
+   id="g944">
+</g>
+<g
+   id="g946">
+</g>
+<g
+   id="g948">
+</g>
+<g
+   id="g950">
+</g>
+<g
+   id="g952">
+</g>
+<g
+   id="g954">
+</g>
+<g
+   id="g956">
+</g>
+<g
+   id="g958">
+</g>
+<g
+   id="g960">
+</g>
+<g
+   id="g962">
+</g>
+<g
+   id="g964">
+</g>
+<g
+   id="g966">
+</g>
+<g
+   id="g968">
+</g>
+<path
+   id="Shape"
+   class="st0"
+   d="m 26.410294,48.236301 c -1.151991,-1.344917 -2.282515,-2.665421 -3.449596,-4.023717 1.186724,-0.979664 2.355399,-1.926819 3.468853,-2.842091 -0.781708,-0.60155 -1.617553,-1.105585 -2.264394,-1.792359 -2.555491,-2.691893 -3.475883,-5.841866 -2.239008,-9.412714 1.282926,-3.70787 4.015524,-5.823018 7.855437,-6.147771 6.474985,-0.542909 10.348621,4.929413 9.94442,9.712946 -0.175012,2.081611 -0.889425,3.98135 -2.425222,5.427611 -1.549175,1.461352 -3.201626,2.820335 -4.836658,4.183993 -1.872242,1.552163 -3.781037,3.066516 -5.666033,4.596584 -0.106419,0.0835 -0.212802,0.167041 -0.387799,0.297521 z"
+   style="fill:url(#Shape_1_);stroke-width:0.0901748" /><g
+   style="fill:#ffffff"
+   id="Fill-1"
+   transform="matrix(-0.06376306,-0.06376306,0.06376306,-0.06376306,33.025588,44.541498)"><g
+     style="fill:#ffffff"
+     class="st1"
+     id="g26"><path
+       style="fill:#ffffff"
+       id="path-2_2_"
+       d="m 164.9,183.5 c -11,0 -21.8,0 -32.9,0 0.2,-9.5 0.4,-49.1 0.6,-58 -6,1.2 -11.8,3.1 -17.6,3.4 C 92,130.1 73.5,121.6 61.7,101.4 49.4,80.4 50.5,58.9 64.5,39.6 88.1,6.9 129.6,10.8 150.4,32 c 9.1,9.2 15.2,20.3 15.7,33.4 0.6,13.2 0.3,26.4 0.1,39.7" /></g><g
+     style="fill:#ffffff"
+     id="g29"><path
+       style="fill:#ffffff"
+       id="path-2_1_"
+       class="st2"
+       d="m 166.6,182.5 c -11,0 -21.8,0 -32.9,0 0.2,-9.5 0.4,-49.1 0.6,-58 -6,1.2 -11.8,3.1 -17.6,3.4 -23,1.2 -41.5,-7.3 -53.3,-27.5 C 51.1,79.4 52.2,57.9 66.2,38.6 89.8,5.9 131.3,9.8 152.1,31 c 9.1,9.2 15.2,20.3 15.7,33.4 0.6,13.2 0.3,26.4 0.1,39.7" /></g></g></svg>

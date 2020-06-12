@@ -40,6 +40,7 @@ app.on('ready', async () => {
     height: 600,
     minWidth: 800,
     minHeight: 600,
+    backgroundColor: '#ffffff',
     show: false,
     webPreferences: {
       nodeIntegration: true,

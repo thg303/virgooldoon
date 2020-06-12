@@ -19,14 +19,20 @@ function watchHtml() {
   );
 }
 
+function watchStaticAssets() {
+  return watch(['app/renderer/assets/**'], series(assets.copyStaticAssets, hotreload.reload));
+}
+
 watchMainScripts.displayName = 'watch-main-scripts';
 watchRendererScripts.displayName = 'watch-renderer-scripts';
 watchHtml.displayName = 'watch-html';
+watchStaticAssets.displayName = 'watch-static-assets';
 
 exports.start = series(
   assets.copyHtml,
+  assets.copyStaticAssets,
   scripts.developBuild,
   hotreload.start,
   electron.start,
-  parallel(watchMainScripts, watchRendererScripts, watchHtml),
+  parallel(watchMainScripts, watchRendererScripts, watchHtml, watchStaticAssets),
 );

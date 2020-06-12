@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
+import { ConfigProvider } from 'antd';
 import routes from './routes';
 import configureStore from './store';
 
@@ -22,7 +23,9 @@ const rootElement = document.querySelector(document.currentScript.getAttribute('
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={routerHistory}>{routes}</ConnectedRouter>
+    <ConfigProvider direction="rtl">
+      <ConnectedRouter history={routerHistory}>{routes}</ConnectedRouter>
+    </ConfigProvider>
   </Provider>,
   rootElement,
 );
