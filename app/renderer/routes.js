@@ -8,6 +8,5 @@ import WelcomePage from './containers/WelcomePage';
 export default (
   <Switch>
     <Route exact path="/" component={WelcomePage} />
-    <Route exact path="/loggedin" component={LoggedInPage} />
   </Switch>
 );
