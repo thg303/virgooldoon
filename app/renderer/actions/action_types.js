@@ -1,0 +1,16 @@
+export const LOGGED_OUT = 'LOGGED_OUT';
+export const LOGGED_IN = 'LOGGED_IN';
+
+export const LOGIN_REQUESTED = 'LOGIN_REQUESTED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+
+export const POSTS_REQUESTED = 'POSTS_REQUESTED';
+export const POSTS_SUCCESS = 'POSTS_SUCCESS';
+export const POSTS_FAILED = 'POSTS_FAILED';
+export const SET_POSTS = 'SET_POSTS';
+export const SET_POSTS_COUNTERS = 'SET_POSTS_COUNTERS';
+
+export const BACKUP_STARTED = 'BACKUP_STARTED';
+export const BACKUP_SUCCESS = 'BACKUP_SUCCESS';
+export const BACKUP_FAILED = 'BACKUP_FAILED';
