@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, Typography } from 'antd';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const { shell } = window.require('electron');
 const { Text, Title } = Typography;

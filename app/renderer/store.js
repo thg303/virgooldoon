@@ -5,7 +5,7 @@ import createSagaMiddleware, { END } from 'redux-saga';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
-export default function createStore(initialState, routerHistory) {
+export default function createStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
 
   const middlewares = [sagaMiddleware];

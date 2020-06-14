@@ -1,21 +1,33 @@
+import React from 'react';
+import { Layout } from 'antd';
+import path from 'path';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
-import { bindActionCreators } from 'redux';
-import Login from '../components/Login';
-import userActions from '../actions/user';
+import { Redirect } from 'react-router-dom';
 
-const mapStateToProps = (state) => {
-  return state;
+import Footer from '../components/Footer';
+import LoginForm from '../components/Login/LoginForm';
+
+const { Content } = Layout;
+const video = path.resolve(__dirname, '../assets/entry.mp4');
+
+const LoginPage = ({ isAuthenticated, dispatch }) => {
+  if (isAuthenticated) {
+    return (<Redirect to="/main" />)
+  }
+  return (
+  <Layout>
+    <video src={video} width="1100" loop={true} autoPlay={true} id="login-video" />
+    <Layout>
+      <Content className="center-content">
+        <div id="login-blur" />
+        <LoginForm dispatch={dispatch} />
+      </Content>
+    </Layout>
+    <Footer />
+  </Layout>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  const user = bindActionCreators(userActions, dispatch);
-  return {
-    onLogin: (data) => {
-      user.login(data);
-      dispatch(push('/loggedin'));
-    },
-  };
-};
+const mapStateToProps = state => ({ isAuthenticated: state.auth.isAuthenticated })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps)(LoginPage);
