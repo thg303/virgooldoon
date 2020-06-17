@@ -34,7 +34,6 @@ const LoginForm = ({ dispatch }) => {
       <Form.Item
         label={texts.username}
         name="username"
-        direction="rtl"
         rules={[
           {
             required: true,
@@ -55,7 +54,7 @@ const LoginForm = ({ dispatch }) => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password direction="ltr" />
       </Form.Item>
 
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>

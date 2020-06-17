@@ -37,12 +37,17 @@ footer.ant-layout-footer.copyright > div {
   opacity: 0.85;
 }
 
-footer.ant-layout-footer.copyright > div button {
+div#footer-links>button {
   margin-right: 3px;
+}
+
+div#footer-links>button:first-of-type {
+  margin-right: 10px;
 }
 
 footer img.logo {
   width: 28px;
+  margin-left: 3px;
 }
 
 #login-video {
@@ -88,8 +93,10 @@ section#backup_page > section {
 form#login {
   width: 250px;
   /* background-color: rgba(255, 255, 255, 0.3 ); */
-
 }
 
+form#login input {
+  direction: ltr;
+}
 
 
