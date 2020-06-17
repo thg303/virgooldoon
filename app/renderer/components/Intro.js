@@ -8,7 +8,7 @@ const { Text, Title } = Typography;
 const Intro = () => {
   const history = useHistory();
 
-  return (<Card actions={[<Button type="primary" onClick={() => history.push('/login')}>شروع کن</Button>]}>
+  return (<Card actions={[<Button key="1" type="primary" onClick={() => history.push('/login')}>شروع کن</Button>]}>
     <Title level={3}>خوش آمدید</Title>
     <div>
       <Text>

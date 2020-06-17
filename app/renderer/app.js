@@ -6,8 +6,7 @@ import { ConfigProvider } from 'antd';
 import routes from './routes';
 import createStore from './store';
 
-const initialState = {};
-const store = createStore(initialState);
+const store = createStore();
 
 const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
 

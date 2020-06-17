@@ -34,6 +34,7 @@ const LoginForm = ({ dispatch }) => {
       <Form.Item
         label={texts.username}
         name="username"
+        direction="rtl"
         rules={[
           {
             required: true,

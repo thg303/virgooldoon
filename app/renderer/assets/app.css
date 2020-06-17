@@ -33,11 +33,16 @@ footer.ant-layout-footer.copyright > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   opacity: 0.85;
 }
 
+footer.ant-layout-footer.copyright > div button {
+  margin-right: 3px;
+}
+
 footer img.logo {
-  width: 36px;
+  width: 28px;
 }
 
 #login-video {
