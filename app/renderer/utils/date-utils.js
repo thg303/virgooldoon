@@ -29,12 +29,6 @@ durations['دقیقه'] = { key: 'm', value: 'minutes' };
 durations['ثانیه'] = { key: 's', value: 'seconds' };
 durations['میلی ثانیه'] = { key: 'ms', value: 'milliseconds' };
 
-function getNumbers(string) {
-  return string.filter(function(w) {
-    return w.match(/\d+/);
-  })
-}
-
 const buildDurationObject = (duration) => {
   const englishNumberDuration = convertNumbersToEn(duration);
   if (englishNumberDuration.includes('چند ثانیه')) {

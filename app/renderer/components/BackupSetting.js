@@ -7,7 +7,7 @@ import { logout } from '../actions/auth';
 
 const { Text } = Typography;
 
-const BackupSetting = ({ dispatch, backup }) => {
+const BackupSetting = ({ dispatch }) => {
   const [postType, setpostType] = useState('published');
   const [format, setFormat] = useState('json');
 

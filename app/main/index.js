@@ -1,10 +1,22 @@
 import path from 'path';
-import { app, crashReporter, BrowserWindow, Menu } from 'electron';
+import { app, crashReporter, BrowserWindow, Menu, ipcMain } from 'electron';
+import electronDl, { download } from 'electron-dl';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
+electronDl();
 let mainWindow = null;
 let forceQuit = false;
+
+ipcMain.on('downloads', async(event, links) => {
+  const win = BrowserWindow.getFocusedWindow();
+  const downloadDirectory = path.resolve(path.join(app.getPath('temp'), 'virgooldoon_images'));
+  const options = {
+    directory: downloadDirectory,
+  };
+  links.forEach(async link => await download(win, link, options));
+  event.reply('downloads', 'ok.');
+});
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -42,12 +54,14 @@ app.on('ready', async () => {
     minHeight: 600,
     backgroundColor: '#ffffff',
     show: false,
+    resizable: false,
+    fullscreen: false,
     webPreferences: {
       nodeIntegration: true,
     },
   });
 
-  mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
+  mainWindow.loadFile(path.resolve(path.join(__dirname, '..', 'renderer', 'index.html')));
 
   // show window once on first load
   mainWindow.webContents.once('did-finish-load', () => {

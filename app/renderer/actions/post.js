@@ -1,7 +1,5 @@
 import {
   POSTS_REQUESTED,
-  POSTS_FAILED,
-  POSTS_SUCCESS,
   SET_POSTS_COUNTERS
 } from './action_types';
 

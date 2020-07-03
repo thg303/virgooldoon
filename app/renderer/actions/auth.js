@@ -1,9 +1,6 @@
 import {
-  LOGGED_IN,
   LOGGED_OUT,
   LOGIN_REQUESTED,
-  LOGIN_FAILED,
-  LOGIN_SUCCESS
 } from './action_types';
 
 export function logout() {

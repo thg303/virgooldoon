@@ -23,7 +23,7 @@ const backupSuccess = (filePath) => {
   });
 };
 
-const backupError = (error) => {
+const backupError = () => {
   notification.error({
     message: 'پشتیبان‌گیری  با خطا مواجه شد',
     description: 'لطفا مسیر دیگری برای پشتیبان‌گیری انتخاب کنید و مطمئن شوید فضای کافی برای ذخیره کردن فایل وجود داشته باشد',

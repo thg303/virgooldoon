@@ -1,4 +1,4 @@
-import { POSTS_SUCCESS, POSTS_FAILED, SET_POSTS, SET_POSTS_COUNTERS } from '../actions/action_types';
+import { POSTS_SUCCESS, POSTS_FAILED, SET_POSTS, SET_POSTS_COUNTERS, IMAGES_DOWNLOADED } from '../actions/action_types';
 import { buildTimeDiffFromDuration } from '../utils/date-utils';
 
 const initialState = {
@@ -8,11 +8,13 @@ const initialState = {
   list: [],
   totalDraftPosts: null,
   totalPublishedPosts: null,
+  imagesDownloaded: false,
 };
 
 const handleState = {
   [POSTS_SUCCESS]: state => ({ ...state, isLoading: false }),
   [POSTS_FAILED]: (state, action) => ({ ...state, isLoading: false, error: action.payload.error }),
+  [IMAGES_DOWNLOADED]: state => ({ ...state, imageDownloaded: true }),
   [SET_POSTS]: (state, action) => {
     return {
       ...state,

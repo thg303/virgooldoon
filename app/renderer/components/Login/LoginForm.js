@@ -11,7 +11,7 @@ const texts = {
 };
 
 const LoginForm = ({ dispatch }) => {
-  const onFinish = (values, errors, outOfDate) => {
+  const onFinish = (values) => {
     dispatch(login(values));
   };
 
