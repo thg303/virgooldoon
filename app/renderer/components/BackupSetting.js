@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Radio, Button, Typography, Space, Divider } from 'antd';
 import { connect } from 'react-redux';
-import { startBackup } from '../actions/backup';
+import { startBackup, askForBackupFilePath } from '../actions/backup';
 import { getPostType } from '../actions/post';
 import { logout } from '../actions/auth';
 
 const { Text } = Typography;
 
-const BackupSetting = ({ dispatch }) => {
+const BackupSetting = ({ dispatch, backup }) => {
   const [postType, setpostType] = useState('published');
   const [format, setFormat] = useState('json');
+
+  useEffect(() => {
+    if (backup.destination === '') {
+      return undefined;
+    }
+    dispatch(getPostType(postType));
+    dispatch(startBackup(format));
+  }, [backup.destination])
 
   return (
     <Card actions={[
       <Button 
         key="1"
-        type="primary"  
+        type="primary"
         onClick={() => {
-          dispatch(getPostType(postType));
-          dispatch(startBackup(format));
+          dispatch(askForBackupFilePath(format));
         }}>شروع کن</Button>,
       <Button key="2" type="default" onClick={() => dispatch(logout())}>خروج از حساب کاربری</Button>,
     ]}>
@@ -40,6 +47,7 @@ const BackupSetting = ({ dispatch }) => {
           <Radio.Group onChange={ e => setFormat(e.target.value)} value={format} >
             <Radio value="excel">Microsoft Excel</Radio>
             <Radio value="json">JSON</Radio>
+            <Radio value="html">HTML</Radio>
           </Radio.Group>
         </div>
       </Space>

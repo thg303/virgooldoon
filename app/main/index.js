@@ -1,6 +1,7 @@
 import path from 'path';
 import { app, crashReporter, BrowserWindow, Menu, ipcMain } from 'electron';
 import electronDl, { download } from 'electron-dl';
+import moment from 'moment-jalaali';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -10,12 +11,19 @@ let forceQuit = false;
 
 ipcMain.on('downloads', async(event, links) => {
   const win = BrowserWindow.getFocusedWindow();
-  const downloadDirectory = path.resolve(path.join(app.getPath('temp'), 'virgooldoon_images'));
+  const timeSuffix = moment().format('YYYY-MM-DD_H-mm-ss');
+  const downloadDirectory = path.resolve(path.join(app.getPath('temp'), `virgooldoon_images__${timeSuffix}`));
   const options = {
     directory: downloadDirectory,
   };
-  links.forEach(async link => await download(win, link, options));
-  event.reply('downloads', 'ok.');
+  try {
+    for (const aLink of links) {
+      await download(win, aLink, options);
+    }
+    event.reply('downloads', downloadDirectory);
+  } catch (e) {
+    console.log('we got exception!', e);
+  }
 });
 
 const installExtensions = async () => {

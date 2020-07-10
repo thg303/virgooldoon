@@ -14,7 +14,7 @@ const initialState = {
 const handleState = {
   [POSTS_SUCCESS]: state => ({ ...state, isLoading: false }),
   [POSTS_FAILED]: (state, action) => ({ ...state, isLoading: false, error: action.payload.error }),
-  [IMAGES_DOWNLOADED]: state => ({ ...state, imageDownloaded: true }),
+  [IMAGES_DOWNLOADED]: (state, action) => ({ ...state, imageDownloaded: action.payload }),
   [SET_POSTS]: (state, action) => {
     return {
       ...state,
