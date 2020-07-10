@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout } from 'antd';
+import { connect } from 'react-redux';
 import Footer from '../components/Footer';
 import BackupSetting from '../components/BackupSetting';
-import { connect } from 'react-redux';
 
 const { Content } = Layout;
 

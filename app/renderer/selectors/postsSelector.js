@@ -2,6 +2,6 @@ export const getPostList = state => {
   return state.post.list;
 };
 
-export const areImagesDownloaded = state => {
+export const downloadedImagePath = state => {
   return state.post.imageDownloaded;
 }

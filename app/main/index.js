@@ -2,7 +2,9 @@ import path from 'path';
 import { app, crashReporter, BrowserWindow, Menu, ipcMain } from 'electron';
 import electronDl, { download } from 'electron-dl';
 import moment from 'moment-jalaali';
+import log from 'electron-log';
 
+log.transports.file.fileName = 'main.log';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 electronDl();
@@ -10,6 +12,7 @@ let mainWindow = null;
 let forceQuit = false;
 
 ipcMain.on('downloads', async(event, links) => {
+  log.info('got image download links:', links);
   const win = BrowserWindow.getFocusedWindow();
   const timeSuffix = moment().format('YYYY-MM-DD_H-mm-ss');
   const downloadDirectory = path.resolve(path.join(app.getPath('temp'), `virgooldoon_images__${timeSuffix}`));
@@ -20,9 +23,10 @@ ipcMain.on('downloads', async(event, links) => {
     for (const aLink of links) {
       await download(win, aLink, options);
     }
+    log.info('all links have been downloaded.');
     event.reply('downloads', downloadDirectory);
   } catch (e) {
-    console.log('we got exception!', e);
+    log.debug('there was an error in downloading images', e);
   }
 });
 
@@ -34,7 +38,7 @@ const installExtensions = async () => {
     try {
       await installer.default(installer[name], forceDownload);
     } catch (e) {
-      console.log(`Error installing ${name} extension: ${e.message}`);
+      log.debug(`Error installing ${name} extension: ${e.message}`);
     }
   }
 };

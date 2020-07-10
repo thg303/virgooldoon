@@ -1,9 +1,10 @@
-import { call, put, takeLatest, all } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'node-html-parser';
 import { ipcRenderer } from 'electron';
+import log from 'electron-log';
 
 import { POSTS_REQUESTED, POSTS_SUCCESS, POSTS_FAILED, SET_POSTS, SET_POSTS_COUNTERS, IMAGES_DOWNLOADED } from '../actions/action_types';
 
@@ -23,22 +24,25 @@ function loadSampleDraftFile() {
     }).catch(error => ({ error }));
 }
 
-async function downloadImages(post) {
+async function extractImages(post) {
   const html = parse(post.body);
   const images = html.querySelectorAll('img');
   if (images.length === 0) {
-    return post;
+    return { post: post, links: [] };
   }
   const links = images.map(imgTag => imgTag.attributes.src);
-  
+  const changed_links = links.map(aLink => './images/' + aLink.substr(aLink.lastIndexOf('/') + 1));
+  images.forEach((image, i) => image.setAttribute('src', changed_links[i]));
+  post.body = html.toString();
+  return { post: post, links: links };
+}
+
+async function downloadImages(links) {
   ipcRenderer.send('downloads', links)
   return await new Promise((resolve, reject) => {
-    ipcRenderer.on('downloads', function () {
+    ipcRenderer.on('downloads', function (event, downloadDirectory) {
       try {
-        const changed_links = links.map(aLink => './virgool_images/' + aLink.substr(aLink.lastIndexOf('/') + 1));
-        images.forEach((image, i) => image.setAttribute('src', changed_links[i]));
-        post.body = html.toString();
-        resolve(post);
+        resolve(downloadDirectory);
       } catch (e) {
         reject('something bad happened', e);
       }
@@ -46,25 +50,42 @@ async function downloadImages(post) {
   });
 }
 
+function* imageExtractorFromPosts(allPosts) {
+  const result = { posts: [], imageLinks: [] };
+  for (const currentPost of allPosts) {
+    const { post, links } = yield call(() => extractImages(currentPost));
+    result.posts = [...result.posts, post];
+    result.imageLinks = [...result.imageLinks, ...links];
+  }
+  return result;
+}
+
 function* loadPosts(action) {
   try {
+    log.info(`'initialize loading [${action.payload}] posts'`)
     const response = yield call(loadSampleDraftFile);
     // const response = yield call(sendLoadDraftPostsRequest);
 
     if (action.payload === 'published') {
       response.data = response.data.filter(post => (post.post_id !== null));
     }
-    const posts = yield all(response.data.map( aPost => call(() => downloadImages(aPost))));
-    if (posts.length > 0) {
-      yield put({ type: IMAGES_DOWNLOADED });
-    }
+
     yield put({ type: POSTS_SUCCESS });
+    log.info('all posts have been downloaded.')
+
+    const postsAndImageLinks = yield call(imageExtractorFromPosts, response.data);
+    log.info('extracting images from posts is completed.')
+    const { posts, imageLinks } = postsAndImageLinks;
+    const photoDownloadDirectory = yield call(downloadImages, imageLinks);
+    log.info(`all images have been downloaded to ${photoDownloadDirectory}`);
+    
+    if (photoDownloadDirectory) {
+      yield put({ type: IMAGES_DOWNLOADED, payload: photoDownloadDirectory });
+    }
     yield put({ type: SET_POSTS, payload: posts });
     yield put({ type: SET_POSTS_COUNTERS, payload: response.userPostCounts });
   } catch (e) {
-    console.log(e);
-    console.log(e.response);
-    console.log(e.response.status);
+    log.debug('there was an error in loading posts:', e);
     yield put({ type: POSTS_FAILED, payload: e.message });
   }
 }

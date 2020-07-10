@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
+import log from 'electron-log';
 import { login } from '../../actions/auth';
 
 const texts = {
@@ -16,7 +17,7 @@ const LoginForm = ({ dispatch }) => {
   };
 
   const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+    log.debug('form validation failed', errorInfo);
   };
 
   return (
