@@ -63,8 +63,9 @@ function* imageExtractorFromPosts(allPosts) {
 function* loadPosts(action) {
   try {
     log.info(`'initialize loading [${action.payload}] posts'`)
-    const response = yield call(loadSampleDraftFile);
-    // const response = yield call(sendLoadDraftPostsRequest);
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    log.info(`WORKING IN DEVELOPMENT MODE? ${isDevelopment}`)
+    const response = yield call(isDevelopment ? loadSampleDraftFile : sendLoadDraftPostsRequest);
 
     if (action.payload === 'published') {
       response.data = response.data.filter(post => (post.post_id !== null));
