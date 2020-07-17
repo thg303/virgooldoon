@@ -68,6 +68,7 @@ app.on('ready', async () => {
     show: false,
     resizable: false,
     fullscreen: false,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
     },
